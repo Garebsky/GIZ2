@@ -3,7 +3,7 @@ Windows:
 1. Ściągnąć i zainstalować Python 3 (np: 3.6.5)
 https://www.python.org/downloads/
 
-2. W CMD wpisać cwiczenie2.py
+2. Pobrać pliki z githuba w ścieżce z plikami W CMD wpisać: cwiczenie2.py
 
 3. w CMD wpisać 1 w celu znalezienia mostów w grafie. 
 Podać ściezkę do pliku wejściowego (np: test.txt)
