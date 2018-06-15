@@ -3,8 +3,9 @@ import os
 import os.path
 import sys
 
+bridgesList = []
 class Graph:
-  
+    
     def __init__(self,vertices):
         self.V = vertices
         self.graph = defaultdict(list)
@@ -29,6 +30,7 @@ class Graph:
                 low[u] = min(low[u], low[v])
                 if low[v] > time[u]:
                     print ("%s %s" %(u+1,v+1))
+                    bridgesList.append([u+1,v+1])
      
             elif v != father[u]: 
                 low[u] = min(low[u], time[v])
@@ -105,6 +107,16 @@ def program():
                             #Handle the exception
                             pass   
             g1.bridge()
+            
+            nameOfFile = input("Ścieżka do pliku wyjsciowego: ")
+            file = open(nameOfFile, "w")
+            first = ""
+            for x in bridgesList:
+                first = first + str(x[0]) + " " + str(x[1]) + "\n"
+            lines = [first]    
+            file.writelines(lines)
+            file.close()
+            os.system(nameOfFile)
             program()
     elif option == "2":
         
@@ -133,6 +145,15 @@ def program():
                             pass   
             g2.AP(apVertices)
             print(*apVertices, sep=' ')
+            nameOfFile = input("Ścieżka do pliku wyjsciowego: ")
+            file = open(nameOfFile, "w")
+            first = ""
+            for x in apVertices:
+                first = first + str(x) + " "
+            lines = [first]    
+            file.writelines(lines)
+            file.close()
+            os.system(nameOfFile)
             program()
     elif option == "3":
         sys.exit()
